@@ -1,0 +1,38 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.robot.drive": {
+			"loop": true,
+			"bones": {
+				"wheel": {
+					"rotation": ["query.modified_distance_moved*40", 0, 0]
+				}
+			}
+		},
+		"animation.robot.sway": {
+			"animation_length": 1,
+			"bones": {
+				"root": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [25, 0, 0],
+						"0.5": [-17.5, 0, 0],
+						"1.0": [0, 0, 0]
+					}
+				}
+			},
+			"sound_effects": {
+				"0.0417": {
+					"effect": "ouch"
+				}
+			}
+		},
+		"animation.robot.poison": {
+			"loop": true,
+			"animation_length": 1,
+			"timeline": {
+				"0.0": ["/effect @s poison 2 0 true"]
+			}
+		}
+	}
+}

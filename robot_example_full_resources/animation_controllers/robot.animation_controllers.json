@@ -1,0 +1,43 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.robot.in_water": {
+            "states": {
+                "default": {
+                    "transitions": [
+                        {"in_water": "query.is_in_water_or_rain"}
+                    ]
+                },
+                "in_water": {
+                    "animations": [
+                        "poison"
+                    ],
+                    "on_exit": [
+                        "/effect @s regeneration 2 4 true",
+                        "/playsound random.fizz @a[r=16]"
+                    ],
+                    "transitions": [
+                        {"default": "query.is_in_water_or_rain == 0"}
+                    ]
+                }
+            }
+        },
+        "controller.animation.robot.ground": {
+            "states": {
+                "default": {
+                    "transitions":[
+                        {"swaying": "!query.is_on_ground"}
+                    ]
+                },
+                "swaying": {
+                    "animations":[
+                        "sway"
+                    ],
+                    "transitions":[
+                        {"default": "query.all_animations_finished && query.is_on_ground"}
+                    ]
+                }
+            }
+        }
+    }
+}
